@@ -10,6 +10,8 @@ const app = express();
 app.use(cors());
 
 
+
+
 // const userRoutes = require('./routes/users')
 
 // const leaderRoutes = require('./routes/leader')
@@ -57,3 +59,12 @@ server.listen(socketPort, () => {
 
 
 // app.listen(port, () => console.log(`Express now departing from port ${port}!`))
+
+// const app = require('./server')
+
+const port = process.env.PORT || 3001
+
+
+app.listen(port, () => console.log(`Express now departing from port ${port}!`))
+
+app.get('/', (req, res) => res.send('Welcome to the library'))
