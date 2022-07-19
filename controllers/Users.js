@@ -15,4 +15,15 @@ async function indexUsers(req, res) {
         res.status(500).send(err)
     }
 }
-module.exports = { indexUsers }
+
+async function create(req, res) {
+    try {
+        const user = await User.create;
+        //const user = await User.create(req.body);
+        res.status(201).json(user);
+    } catch (err) {
+        res.status(422).json({ err })
+    }
+}
+
+module.exports = { indexUsers, create }
