@@ -18,8 +18,8 @@ async function indexUsers(req, res) {
 
 async function create(req, res) {
     try {
-        const user = await User.create;
-        //const user = await User.create(req.body);
+        // const user = await User.create;
+        const user = await User.create(req.body);
         res.status(201).json(user);
     } catch (err) {
         res.status(422).json({ err })

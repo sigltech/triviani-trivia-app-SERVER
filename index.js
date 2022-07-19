@@ -3,11 +3,14 @@ const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
 const socketPort = process.env.SOCKET_PORT || 8000;
+const userRoutes = require('./routes/Users')
 // const port = process.env.PORT || 3000
 
 const app = express();
 
 app.use(cors());
+
+
 
 
 // const userRoutes = require('./routes/users')
@@ -57,3 +60,15 @@ server.listen(socketPort, () => {
 
 
 // app.listen(port, () => console.log(`Express now departing from port ${port}!`))
+
+// const app = require('./server')
+
+const port = process.env.PORT || 3001
+
+
+app.get('/', (req, res) => res.send('Welcome to the library'))
+
+app.use('/user', userRoutes)
+
+
+app.listen(port, () => console.log(`Express now departing from port ${port}!`))
